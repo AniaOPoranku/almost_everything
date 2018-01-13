@@ -1,0 +1,26 @@
+import random as rd
+num=rd.randint(0,10)
+trail=0
+print('Cześć, Iza, guess number between 0 and 10 ')
+while trail<3:
+  trail +=1
+  try:
+    guess=int(input('enter your guess '))
+    if guess<0 or guess>10:
+      print("it's not between 0 and 10")
+    else:
+      if guess>num:
+        print('The number is too hight')
+        if trail<=2:
+          print('try again')
+      elif guess<num:
+        print('The number is not enough')
+        if trail<=2:
+          print('try again')
+      elif guess == num:
+        print('congratulation, you win')
+        break
+  except ValueError:
+    print("it's not between 0 and 10")  
+else:
+  print('No. The number was ' + str(num))
