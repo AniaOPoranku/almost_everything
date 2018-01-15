@@ -1,0 +1,136 @@
+import random
+print("************HANGMAN*************")
+man=(""">.
+
+
+
+
+
+________""",
+"""|
+|
+|
+|
+|
+|
+|
+|
+|________<""",
+"""---------
+|
+|
+|
+|
+|
+|
+|
+|
+|________<""",
+"""---------
+|        |
+|        |
+|
+|
+|
+|
+|
+|
+|________<""",
+"""---------
+|        |
+|        |
+|        O
+|
+|
+|
+|
+|
+|________<""",
+"""---------
+|        |
+|        |
+|        O
+|       /-
+|
+|
+|
+|
+|________<""",
+"""---------
+|        |
+|        |
+|        O
+|       /-J
+|
+|
+|
+|
+|________<""",
+"""---------
+|        |
+|        |
+|        O
+|       /-J
+|        |
+|
+|
+|
+|________<""",
+"""---------
+|        |
+|        |
+|        O
+|       /-J
+|        |
+|       [
+|
+|
+|________<""",
+"""---------
+|        |
+|        |
+|        O
+|       /-J
+|        |
+|       [ ]
+|
+|
+|________<""")
+        
+        
+word=random.choice(["pajacyk", "motorynka", "puszka", "materac", "aminoacetyloadenazynomonofosforan", "batat","wisielec", "python"])
+wrong_letters=[]
+hidden_word="-"*len(word)
+round=0
+missed=0
+try:
+  print (hidden_word)
+  while round<10:
+    if hidden_word!=word:
+      guess=input("podaj literę: ")
+      guess.lower()
+      if guess in word:
+        print("trafiłeś")
+        for i in range(len(word)):
+          if guess == word[i]:
+            hidden_word=hidden_word[:i]+word[i]+hidden_word[i+1:]
+            
+      else:
+        round+=1
+        print("pudło")
+        if guess in wrong_letters:
+          print("już raz próbowałeś")
+        else:
+          wrong_letters.append(guess)
+        missed+=1
+        print (man[missed])
+      print(hidden_word)
+      print("pudła: "+ str(wrong_letters))
+    else:
+      print("****wygrałeś****")
+      break
+  else:
+    print("tym razem nie zgadłeś")
+except IndexError:
+  print("tym razem nie zgadłeś")
+      
