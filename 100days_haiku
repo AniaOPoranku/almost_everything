@@ -1,0 +1,39 @@
+import random
+#mgła coraz wyżej
+#w koronach drzew przybywa
+#nagich gałęzi
+noun={"wiatr":1, "mgła":1, "noc":1, "gwiazda":2,"blask":1, "słońca":2,"księżyc":2, "podróż":2,"lśnienie":2, "błękit":2, "motyle":3, "ptaki":2, "niebo":2}
+adjective={"piękny":2, "lśniący":2, "wspaniałe":3, "płynące":3, "zachodni":3, "zaskakujące":5}
+verb={"płynie":2, "lśni":1, "rozświatla":3, "podróżuje":4, "przybywa":3,"odchodzi":3, "znika":2}
+adverb={"i":1,"a":1, "do":1, "jak":1,"nad":1, "ale":2,"nigdy":2, "zawsze":2, "pośród":2,"coraz":2}
+line1w=[] #5
+line1c=0
+line2w=[]
+line2c=0 #7
+line3w=[]
+line3c=0#5
+if line1c<5:
+    line1c+=random.choice(list(adjective.items()))[1]
+    line1w.append(random.choice(list(adjective.items()))[0])
+    if line1c < 5:
+        line1c += random.choice(list(noun.items()))[1]
+        line1w.append(random.choice(list(noun.items()))[0])
+    line1=" ".join(line1w)
+if line2c<7:
+    line2c+=random.choice(list(verb.items()))[1]
+    line2w.append(random.choice(list(verb.items()))[0])
+    if line2c < 7:
+        line2c += random.choice(list(adverb.items()))[1]
+        line2w.append(random.choice(list(adverb.items()))[0])
+        if line2c < 7:
+            line2c += random.choice(list(noun.items()))[1]
+            line2w.append(random.choice(list(noun.items()))[0])
+    line2 = " ".join(line2w)
+if line3c<5:
+    line3c+=random.choice(list(noun.items()))[1]
+    line3w.append(random.choice(list(noun.items()))[0])
+    if line3c < 5:
+        line3c += random.choice(list(verb.items()))[1]
+        line3w.append(random.choice(list(verb.items()))[0])
+    line3=" ".join(line3w)
+print(line1 +"\n"+ line2+"\n"+ line3)
