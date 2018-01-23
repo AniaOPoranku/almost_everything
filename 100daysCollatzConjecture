@@ -1,0 +1,11 @@
+c=int(input("enter the number from which you want to start: "))
+c_list=[]
+while c>1:
+  c_list.append(c)
+  if c%2==0:
+    c=c/2
+    print (c)
+  else:
+    c=3*c+1
+    print(c)
+print( "{} steps".format(len(c_list)))
