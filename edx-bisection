@@ -1,0 +1,14 @@
+print ("Please think of a number between 0 and 100!")
+low=0
+hight=100
+ans=round((hight-low)/2)
+while True:
+  guess=input("Is your secret number {}? \nEnter 'h' to indicate the guess is too high. \nEnter 'l' to indicate the guess is too low.\n Enter 'c' to indicate I guessed correctly.".format(ans))
+  if guess == 'l':
+    low=ans
+  elif guess =='h':
+    hight=ans
+  elif guess == 'c':
+    print ("Game over. Your secret number was: {}".format(ans))
+    break
+  ans=int((hight+low)/2)
