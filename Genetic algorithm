@@ -1,0 +1,25 @@
+import random as rd
+signs=["[","]","="," ","o","O","0","}", "|", "{", ">","<","i","*"]
+end = """[o]
+>O<
+[ ]"""
+evo= """\ /
+ 0 
+ | """
+pattern = """***
+***
+***"""
+
+print(end)
+generation=0
+while evo != end:
+  i=rd.randint(0,10)
+  if evo[i] == end[i]:
+    continue
+  else: 
+    evo = evo.replace(evo[i], rd.choice(signs), 1)
+    generation +=1
+    print(evo,"\n")
+
+print(evo)  
+print("There was {} generations".format(generation))
