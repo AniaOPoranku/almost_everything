@@ -1,0 +1,19 @@
+def radix_translator(str_number, radix):
+
+    pattern_list = list('0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ')
+    if str_number == "0":
+        return 0
+    else:
+        index_list = []
+        for i in range(len(str_number)):
+            decimal_index = pattern_list.index(str_number[i])
+            if decimal_index > radix-1:
+                return -1
+            else:
+                index_list.append(decimal_index)
+        reverse_list = index_list[::-1]
+        result = 0
+        for n in range(len(reverse_list)):
+            almost_result = reverse_list[n]*radix**n
+            result += almost_result
+        return result
