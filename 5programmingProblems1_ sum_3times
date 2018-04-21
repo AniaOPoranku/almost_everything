@@ -1,0 +1,23 @@
+num_list = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+def for_loop_num(num_list):
+  counter = 0
+  for i in range(len(num_list)):
+    counter += num_list[i]
+  return counter
+print(for_loop_num(num_list))
+
+def while_loop_num(num_list):
+  i = len(num_list)-1
+  counter = 0
+  while i >= 0:
+    counter += num_list[i]
+    i -= 1
+  return counter
+print(while_loop_num(num_list)) 
+
+def recurr_num(num_list):
+  if len(num_list) == 0:
+    return 0
+  else:
+    return num_list[0] + recurr_num(num_list[1:]) 
+print(recurr_num(num_list))
