@@ -1,0 +1,41 @@
+from math import sqrt, pi
+
+class Object:
+  def __init__(self, numberOfVertices, numberOfDimensions, *args):
+    self.numberOfVertices = numberOfVertices
+    self.numberOfDimensions = numberOfDimensions
+    self.a = args[0]
+    if len(args) >=2: 
+      self.b = args[1]
+    if len(args)==3:
+      self.c = args[2]
+   
+
+  
+  def area(self):
+    if self.numberOfVertices == 3 and self.numberOfDimensions == 2:
+      p = (self.a + self.b + self.c)/2
+      return sqrt(p * (p - self.a) * (p - self.b) * (p - self.c))
+    elif self.numberOfVertices == 4 and self.numberOfDimensions == 2:
+      try: return self.a * self.b
+      except: return self.a **2
+    elif self.numberOfVertices == 4 and self.numberOfDimensions == 3:
+      return (self.a ** 2) * sqrt(3) 
+    elif self.numberOfVertices == 0 and self.numberOfDimensions == 2:
+      return pi * self.a * self.b
+    elif self.numberOfVertices == 8 and self.numberOfDimensions == 3:
+      return (self.a ** 2) * 6
+    else:
+      return "CucumberDivisionError, i can't do this"
+
+  def volume(self):
+    try:
+      if self.numberOfVertices == 4 and self.numberOfDimensions == 3:
+        return ((self.a ** 3) * sqrt(2))/12 
+      elif self.numberOfVertices == 8 and self.numberOfDimensions == 3:
+        return self.a ** 3
+    except:
+        return "CucumberDivisionError, i can't do this"
+
+cube = Object(8, 3, 5)
+print(cube.volume())
